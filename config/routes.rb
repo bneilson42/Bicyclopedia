@@ -1,4 +1,7 @@
-Rails.application.routes.draw do
+Bicyclopedia::Application.routes.draw do
+
+  resources :wikis
+  
   get 'welcome/index'
 
   root to:'welcome#index'
