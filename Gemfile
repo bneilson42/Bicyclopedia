@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'faker'
+gem 'will_paginate'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
