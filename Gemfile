@@ -4,6 +4,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'faker'
 gem 'will_paginate'
 gem 'devise'
+gem 'figaro', '1.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
