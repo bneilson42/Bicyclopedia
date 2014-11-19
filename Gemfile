@@ -5,6 +5,8 @@ gem 'faker'
 gem 'will_paginate'
 gem 'devise'
 gem 'figaro', '1.0'
+gem 'redcarpet'
+gem 'stripe'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -18,6 +20,11 @@ gem 'rails', '4.1.7'
 
  group :development do
    gem 'sqlite3'
+ end
+
+ group :development, :test do
+   gem 'rspec-rails'
+   gem 'capybara'
  end
 
 # Use SCSS for stylesheets
