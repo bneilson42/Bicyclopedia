@@ -1,2 +1,16 @@
-<h1>Bicyclopedia</h1>
-<p>This is bicyclopedia</p>
+<div class="page-header">
+  <h1>Bicyclopedia</h1>
+  <p>Online resource for creating bicycling markdown wikis.</p>
+
+<div class="row">
+  <div class="col-md-5">
+    <h2>Free User</h2>
+    <p>Create public bicycling wikis.</p>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %>
+</div>
+  <div class="col-md-5">
+    <h2>Premium User</h2>
+    <p>Premium users have access to create private wikis.</p>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %>
+  </div>
+</div>
