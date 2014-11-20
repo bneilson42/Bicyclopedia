@@ -1,16 +1,18 @@
-<div class="page-header">
+
+ <div class="Jumbotron">
   <h1>Bicyclopedia</h1>
   <p>Online resource for creating bicycling markdown wikis.</p>
+ <% if user_signed_in? %>
+    <div class="col-md-5">
+      <h2>Become a premium member!</h2>
+      <p>Premium users have access to create private wikis.</p>
+      <%= link_to "Upgrade to premium", new_charge_path, class: 'btn btn-primary btn-large' %>
+<% else %>
 
-<div class="row">
-  <div class="col-md-5">
-    <h2>Free User</h2>
+<div class="col-md-5">
+    <h2>Sign up for free</h2>
     <p>Create public bicycling wikis.</p>
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %>
 </div>
-  <div class="col-md-5">
-    <h2>Premium User</h2>
-    <p>Premium users have access to create private wikis.</p>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %>
-  </div>
+<% end %>
 </div>
