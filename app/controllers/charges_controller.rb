@@ -27,7 +27,7 @@ class ChargesController < ApplicationController
     current_user.stripeid = customer.id
     current_user.save
 
-    redirect_to profile_path, :notice => "Your subscription is active!"
+    redirect_to welcome_path, :notice => "Your subscription is active!"
 
 
 
