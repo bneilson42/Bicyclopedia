@@ -1,6 +1,7 @@
 class WikisController < ApplicationController
 
   def index
+    @wikis = Wiki.visible_to(current_user)
   end
 
   def show
@@ -35,5 +36,11 @@ class WikisController < ApplicationController
     else
       flash[:error] = "Error saving wiki. Please try again."
     end
+  end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body, :is_private, :collaborator_ids => [])
   end
 end
