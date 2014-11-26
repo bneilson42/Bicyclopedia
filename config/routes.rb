@@ -1,8 +1,10 @@
 Bicyclopedia::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :wikis
   resources :charges, only: [:new, :create]
+  resources :collaborations, only: [:new, :create, :destroy]
+  resources :users
 
   get 'welcome/index'
 
