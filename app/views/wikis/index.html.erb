@@ -1,10 +1,6 @@
-<h1>Wiki's</h1>
+<h1>Wikis</h1>
+<%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-primary btn-large' %>
+
 <% @wikis.each do |wiki| %>
-   <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <li><%= link_to wiki.title, wiki_path(wiki) %></li>
-       </h4>
-     </div>
-   </div>
+<%= link_to (markdown wiki.title), [wiki] %>
 <% end %>

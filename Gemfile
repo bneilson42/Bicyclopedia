@@ -7,6 +7,7 @@ gem 'devise'
 gem 'figaro', '1.0'
 gem 'redcarpet'
 gem 'stripe'
+gem 'friendly_id'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,17 +1,17 @@
 class Wiki < ActiveRecord::Base
+  has_many :users, through: :collaborations
+  has_many :collaborations
+  has_many :articles, dependent: :destroy
 
-    #extend FriendlyId
-    #friendly_id :title, use: [:slugged, :history]
+  # attr_accessible :description, :topic, :privacy
+  validates :description, presence: true
+  validates :topic, presence: true
+  validates :topic, length: { maximum: 40 }
+  validates :description, length: { maximum: 140 }
 
-    #attr_accessible :body, :public, :title
 
-    belongs_to :user
-    has_many :wiki_collaborations
-    has_many :users, through: :wiki_collaborations
+  extend FriendlyId
+  friendly_id :topic, use: :history
 
-    validates :user_id, presence: true
-    validates :title, presence: true, length: { maximum: 220 }
-    validates :body, presence: true, length: { minimum: 20 }
-
-    #default_scope order: 'wikis.created_at DESC'
+  scope :visible_to, where(privacy: false)
 end
