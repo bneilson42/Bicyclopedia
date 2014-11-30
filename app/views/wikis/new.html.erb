@@ -6,15 +6,8 @@
   <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
   <%= f.text_area :body, rows: 12, class: 'form-control', placeholder: 'Body' %>
 
-  <% if policy(@wiki).premium? %>
-  Add collaborators:
-  <% @users.each do |user| %>
-  <ul class="collaboratorCheckbox"> <%= check_box_tag "wiki[collaborator_ids][]", user.id %>
-    <%= user.username || user.email %> </ul>
-    <% end %>
-    <p class="wikiCheckbox"><%= f.check_box :is_private %>
-      <%= f.label "Private" %></p>
-      <% end %>
+
+      
 
       <p> <%= f.submit 'Save', class: 'btn btn-info' %> </p>
     <% end %>

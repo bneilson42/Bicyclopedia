@@ -1,7 +1,7 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = Wiki.visable_to
+    @wikis = Wiki.all
   end
 
   def show
@@ -13,7 +13,7 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
-     authorize! :create, @wiki, message: "You need to be signed up to create wikis."
+
   end
 
   def edit
@@ -43,9 +43,5 @@ class WikisController < ApplicationController
     end
   end
 
-  private
 
-  def wiki_params
-    params.require(:wiki).permit(:title, :body, :is_private, :collaborator_ids => [])
-  end
 end
