@@ -4,11 +4,12 @@ Bicyclopedia::Application.routes.draw do
 
   get 'users/show'
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users
+   resources :users, only: [:update, :show, :index]
   resources :wikis
   resources :charges, only: [:new, :create]
   resources :collaborations, only: [:new, :create, :destroy]
-  resources :users
+
 
   get 'welcome/index'
 

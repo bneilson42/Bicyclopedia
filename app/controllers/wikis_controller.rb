@@ -13,20 +13,22 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
-
+    authorize @wiki
   end
 
   def edit
   end
 
   def create
-   @wiki = current_user.wikis.build(params[:wiki])
+    @wiki = current_user.wikis.build(params[:wiki])
+    authorize @wiki
     if @wiki.save
-      flash[:notice] = "Wiki was created."
+      flash[:notice] = "Wiki created!"
       redirect_to @wiki
     else
       render :new
     end
+
   end
 
   def destroy
