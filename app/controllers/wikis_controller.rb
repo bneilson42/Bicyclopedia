@@ -1,7 +1,8 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = Wiki.all
+    @wikis = policy_scope(Wiki)
+    authorize @wikis
   end
 
   def show
@@ -17,6 +18,8 @@ class WikisController < ApplicationController
   end
 
   def edit
+    @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def create
@@ -36,7 +39,7 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-    authorize! :edit, @wiki, message: "You need to be a member to edit wiki."
+     authorize @wiki
     if @wiki.update_attributes(params[:wiki])
       flash[:success] = "Your changes have been made."
       redirect_to @wiki

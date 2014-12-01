@@ -1,5 +1,7 @@
 <h1>Wikis</h1>
+<% if policy(Wiki.new).create? %>
 <%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-primary btn-large' %>
+<% end %>
 
 <% @wikis.each do |wiki| %>
 <%= link_to (markdown wiki.title), [wiki] %>

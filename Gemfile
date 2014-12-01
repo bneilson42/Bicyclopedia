@@ -8,6 +8,7 @@ gem 'figaro', '1.0'
 gem 'redcarpet'
 gem 'stripe'
 gem 'friendly_id'
+gem 'pundit'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
