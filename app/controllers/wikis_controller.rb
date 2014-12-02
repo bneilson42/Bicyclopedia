@@ -1,7 +1,7 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = policy_scope(Wiki)
+    @wikis = Wiki.all
     authorize @wikis
   end
 
@@ -29,6 +29,7 @@ class WikisController < ApplicationController
       flash[:notice] = "Wiki created!"
       redirect_to @wiki
     else
+      flash[:error] = "There was an error saving the wiki. Please try again."
       render :new
     end
 
