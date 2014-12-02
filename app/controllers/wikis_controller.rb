@@ -23,7 +23,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = current_user.wikis.build(params[:wiki])
+    @wiki = current_user.wikis.build(wiki_params)
     authorize @wiki
     if @wiki.save
       flash[:notice] = "Wiki created!"
@@ -36,18 +36,23 @@ class WikisController < ApplicationController
   end
 
   def destroy
+    @wiki = Wiki.find(wiki_params)
+    authorize @wiki
   end
 
   def update
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.find(wiki_params)
      authorize @wiki
-    if @wiki.update_attributes(params[:wiki])
-      flash[:success] = "Your changes have been made."
+    if @wiki.save
+      flash[:notice] = "Your changes have been made."
       redirect_to @wiki
     else
       flash[:error] = "Error saving wiki. Please try again."
     end
   end
 
-
+private
+  def wiki_params
+    params.require(:wiki).permit(:title, :body)
+  end
 end
