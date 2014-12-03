@@ -7,11 +7,10 @@ Bicyclopedia::Application.routes.draw do
   devise_for :users
    resources :users, only: [:update, :show, :index]
   resources :wikis
-  resources :charges, only: [:new, :create]
   resources :collaborations, only: [:new, :create, :destroy]
+  resources :charges, only: [:new, :create]
 
-
-  get 'welcome/index'
+  get 'welcome', to: 'welcome#index'
 
   root to:'welcome#index'
 

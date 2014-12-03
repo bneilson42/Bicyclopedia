@@ -32,17 +32,17 @@ class WikisController < ApplicationController
       flash[:error] = "There was an error saving the wiki. Please try again."
       render :new
     end
-
   end
 
   def destroy
-    @wiki = Wiki.find(wiki_params)
+    @wiki = Wiki.find(params[:id])
     authorize @wiki
   end
 
   def update
-    @wiki = Wiki.find(wiki_params)
-     authorize @wiki
+    @wiki = Wiki.find(params[:id])
+    @wiki.update_attributes(wiki_params)
+    authorize @wiki
     if @wiki.save
       flash[:notice] = "Your changes have been made."
       redirect_to @wiki
