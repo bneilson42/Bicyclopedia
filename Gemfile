@@ -9,6 +9,7 @@ gem 'redcarpet'
 gem 'stripe'
 gem 'friendly_id'
 gem 'pundit'
+gem 'epic-editor-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

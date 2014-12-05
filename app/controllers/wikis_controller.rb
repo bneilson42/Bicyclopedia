@@ -37,6 +37,12 @@ class WikisController < ApplicationController
   def destroy
     @wiki = Wiki.find(params[:id])
     authorize @wiki
+    if  @wiki.delete
+      flash[:notice] = "Your wiki has been deleted."
+      redirect_to wikis_path
+    else
+      flash[:error] = "There was an error deleting your wiki"
+    end
   end
 
   def update
