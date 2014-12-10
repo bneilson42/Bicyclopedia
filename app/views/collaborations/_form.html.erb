@@ -1,1 +1,7 @@
-
+<div class="form-group">
+  <%= form_for @collaboration do |f| %>
+    <%= f.hidden_field :wiki, @wiki %>
+    <%= f.select :user, @possible_collaborators %>
+    <p> <%= f.submit 'Save', class: 'btn btn-info' %> </p>
+  <% end %>
+</div>

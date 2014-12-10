@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   def moderator?
     role == 'moderator'
   end
+
+  def self.subscribed
+    where(subscribed: true)
+  end
+
 end

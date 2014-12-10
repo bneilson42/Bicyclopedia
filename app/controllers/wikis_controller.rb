@@ -7,6 +7,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
+    @possible_collaborators = User.subscribed
     if request.path != wiki_path(@wiki)
       redirect_to @wiki, status: :moved_permanently
     end
