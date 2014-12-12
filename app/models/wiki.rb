@@ -15,4 +15,7 @@ class Wiki < ActiveRecord::Base
   # friendly_id :topic, use: :history
 
   scope :visible_to, where(privacy: false)
+
+  # TODO: Determine query for collab
+  # scope :possible_collaborators, !user && !users && where(user.subscribed)
 end

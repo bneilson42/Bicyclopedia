@@ -5,16 +5,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  scope :subscribed, where(subscribed: true)
+
   def admin?
     role == 'admin'
   end
 
   def moderator?
     role == 'moderator'
-  end
-
-  def self.subscribed
-    where(subscribed: true)
   end
 
 end

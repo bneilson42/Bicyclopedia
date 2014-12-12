@@ -9,7 +9,7 @@
 </div>
 <div class="col-sm-5">
   <h3>Add Collaborators</h3>
-  <% render template: 'collaborations/_form.html.erb', locals: { wiki: @wiki } %>
+  <%= render partial: 'collaborations/form' %>
 </div>
 <% else %>
 <div class="col-sm-12">
