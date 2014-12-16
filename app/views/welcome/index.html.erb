@@ -1,18 +1,23 @@
 </br>
-<% if user_signed_in? %>
-<div class="jumbotron center">
+<% if user_signed_in? && !current_user.subscribed %>
+<div class="jumbotron">
   <h1 class="center-header">Bicyclopedia</h1>
   <p>Online resource for creating bicycling markdown wikis.</p>
- <div class="row">
+</div>
+<% elsif user_signed_in? %>
+<div class="jumbotron">
+  <h1 class="center-header">Bicyclopedia</h1>
+  <p>Online resource for creating bicycling markdown wikis.</p>
+  <div class="row">
     <div class="col-md-6">
       <h2>Become a premium member!</h2>
       <p>Premium users have access to create private wikis.</p>
       <%= link_to "Upgrade to premium", new_charge_path, class: 'btn btn-primary btn-large' %>
-   </div>
- </div>
+    </div>
+  </div>
 </div>
-  <% elsif %>
-  <div class="jumbotron center">
+  <% else %>
+  <div class="jumbotron">
     <h1 class="center-header">Bicyclopedia</h1>
     <p>Online resource for creating bicycling markdown wikis.</p>
 <div class="row">
